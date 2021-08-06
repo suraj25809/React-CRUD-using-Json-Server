@@ -13,17 +13,18 @@ React Tutorial Application in that:
 # Project setup
 
 In the project directory, you can run:
-
-npm install
-# or
-yarn install
+  
+    npm install
+     or
+    yarn install
 
 or
 Compiles and hot-reloads for development
 
-npm start
-# or
-yarn start
+    npm start
+     or
+    yarn start
+
 
 Open http://localhost:3000 to view it in the browser.
 
