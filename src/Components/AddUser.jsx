@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Typography, FormControl, InputLabel, Input, Box, FormGroup, Button } from '@material-ui/core';
 import { addUser } from '../service/api';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const initialValue = {
     name: "",
@@ -15,7 +15,7 @@ const AddUser = () => {
     const [user, setUser] = useState(initialValue);
     const {name, username, email, phone} = user;
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const onValueChange = (e) =>
     {
@@ -27,7 +27,7 @@ const AddUser = () => {
 
     const addUserDetails = async () =>{
        await addUser(user);
-       history.push('/all');
+       navigate('/all');
     }
 
     return (
@@ -53,7 +53,7 @@ const AddUser = () => {
                 </FormControl>
                 <Box my={3}>
                     <Button variant="contained" onClick={() => addUserDetails() } color="primary" align="center">Add User</Button>
-                    <Button onClick={()=> history.push("/all")} variant="contained" color="secondary" align="center" style={{margin: '0px 20px'}}>Cancel</Button>
+                    <Button onClick={()=> navigate("/all")} variant="contained" color="secondary" align="center" style={{margin: '0px 20px'}}>Cancel</Button>
                 </Box>
             </FormGroup>
             </Box>

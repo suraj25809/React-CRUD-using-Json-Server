@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Typography, FormControl, InputLabel, Input, Box, FormGroup, Button } from '@material-ui/core';
 import { editUser, getallUsers } from '../service/api';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const initialValue = {
     name: "",
@@ -26,7 +26,7 @@ const EditUser = () => {
         setUser(response.data);
     }
 
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const onValueChange = (e) =>
     {
@@ -38,7 +38,7 @@ const EditUser = () => {
 
     const editUserDetails = async () =>{
        await editUser(id,user);
-       history.push('/all');
+       navigate('/all');
     }
 
     return (
@@ -64,7 +64,7 @@ const EditUser = () => {
                 </FormControl>
                 <Box my={3}>
                     <Button variant="contained" onClick={() => editUserDetails() } color="primary" align="center">Update User</Button>
-                    <Button onClick={()=> history.push("/all")} variant="contained" color="secondary" align="center" style={{margin: '0px 20px'}}>Cancel</Button>
+                    <Button onClick={()=> navigate("/all")} variant="contained" color="secondary" align="center" style={{margin: '0px 20px'}}>Cancel</Button>
                 </Box>
             </FormGroup>
             </Box>
